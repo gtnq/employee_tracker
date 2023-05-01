@@ -7,36 +7,36 @@ function actions (action) {
     switch(action) {
         case "view all departments":
             console.log('test')
-            view("department");
+            resolve(view("department"));
+            
             break;
 
         case "view all roles":
-            view("role");
+            resolve(view("role"));
             break;
             
         case "view all employees":
             console.log('test')
-            view("employee");
+            resolve(view("employee"));
             break;
             
         case "add a department":
-            add("department");
+            resolve(add("department"))
             break;
             
         case "add a role":
-            add("role");
+            resolve(add("role"))
             break;
             
         case "add an employee":
-            add("employee");
+            resolve(add("employee"))
             break;
             
         case "update an employee role":
-            updateEmployee()
+            resolve(updateEmployee())
             break
             
         default:
-            start()
             
     }
     return;

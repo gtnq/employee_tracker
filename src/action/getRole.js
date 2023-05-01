@@ -5,6 +5,8 @@ const getRole = async (res, req) => {
     quote += "from role r left join department d on r.department_id = d.id;"
     const [result] = await connection.query(quote)
     console.table(result)
+    console.log(' ')
+    return
 }
 
 

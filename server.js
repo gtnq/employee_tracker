@@ -23,16 +23,17 @@ const init = [
 function start() {
     return inquirer.prompt(init).then((userData) => {
         if (userData.index === "Quit") {
-            return console.log("finished");
+			console.log("finished")
+			process.exit()
+            
         } else {
-            actions(userData.index);
-			start()
+            return actions(userData.index).then(start);
+			
         }
     });
 }
 
 
-start();
-
+start()
 module.exports = start;
 console.log('ehh')
