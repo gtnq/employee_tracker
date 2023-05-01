@@ -37,7 +37,7 @@ function actions (action) {
             break
             
         default:
-            
+            resolve()
     }
     return;
 }   
