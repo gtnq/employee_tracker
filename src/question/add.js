@@ -1,32 +1,29 @@
-const getdepartmentName = require('../getInfo/department')
-const addRole = require( '../action/addRole')
-const addEmployee = require('../action/addEmployee')
+const getdepartmentName = require("../inquerierData/department");
+const getRoleName = require("../inquerierData/role");
+const checkEmployeeORemployer = require("../inquerierData/identity");
 
+function add(item) {
+	console.log("add");
+	switch (item) {
+		case "department":
+			getdepartmentName()
+				.then(() => console.log("getdepartment"))
+				
 
-function add (item) {
-    console.log('add')
-    switch (item) {        
-        case "department":
-            getdepartmentName()
-            console.log('getdepartment')
-            break;
-        case "role":
-            addRole()
-            console.log('getRole')
-            break;
-        case "employee":
-            addEmployee()
-            console.log('getEmployee')
-            break;
-    }
+			break;
+		case "role":
+			getRoleName()
+				.then(() => console.log("addRole"))
+				
+			break;
+		case "person":
+			checkEmployeeORemployer()
+				.then(() => console.log("addEmployee"))
+				
+			break;
+	}
 
-    
-    return ;
-    
-
-
+	return Promise.resolve();
 }
 
-
-
-module.exports = add
+module.exports = add;

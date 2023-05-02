@@ -1,24 +1,33 @@
-const getRole = require('../action/getRole')
-const getEmployee = require('../action/getEmployee')
-const getDepartment = require('../action/getDepartment')
-// const table = require('console.table')
+const {getDepartment, getEmployee, getRole} = require('../action/getData')
 
 function view (item) {
     switch (item) {
         case "department":
-            getDepartment()
+            getDepartment().then((result) => {
+                console.table(result); 
+                console.log(" ");
+                return Promise.resolve()
+            })
             console.log('getdepartment')
             break;
         case "role":
-            getRole()
+            getRole().then((result) => {
+                console.table(result); 
+                console.log(" ");
+                Promise.resolve()
+            })
             console.log('getRole')
             break;
         case "employee":
-            getEmployee()
+            getEmployee().then((result) => {
+                console.table(result); 
+                console.log(" ");
+                Promise.resolve()
+            })
             console.log('getEmployee')
             break;
     }
-    return ;
+    return Promise.resolve();
 
 
 }

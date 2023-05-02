@@ -1,6 +1,6 @@
 const inquirer = require('inquirer')
-const addDepartment = require('../action/addDepartment')
-const start = require("../../server")
+const addDepartment = require('../action/addData')
+
 
 
 const departmentQuestions = [
@@ -22,7 +22,7 @@ const departmentQuestions = [
 
 async function getdepartmentName() {
     return inquirer.prompt(departmentQuestions)
-        .then(userdata => addDepartment(userdata.departmentName))
+        .then(userdata => {return addDepartment(userdata.departmentName)})
         
 }
 module.exports = getdepartmentName

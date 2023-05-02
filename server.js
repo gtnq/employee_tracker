@@ -13,7 +13,7 @@ const init = [
 			"view all employees",
 			"add a department",
 			"add a role",
-			"add an employee",
+			"add an person",
 			"update an employee role",
 			"Quit",
 		],
@@ -22,18 +22,20 @@ const init = [
 
 function start() {
     return inquirer.prompt(init).then((userData) => {
-        if (userData.index === "Quit") {
-			console.log("finished")
-			process.exit()
-            
-        } else {
-            return actions(userData.index).then(start);
-			
-        }
+        return userData.index
     });
 }
+async function status() {
+	let menu;
+	do {
+		menu = await start();
+		await actions(menu)
+	} while (menu !== 'Quit');
+	if (menu === 'quit'){
+		process.kill()
+	}
+}
+status()
 
-
-start()
-module.exports = start;
+exports.start = start
 console.log('ehh')
