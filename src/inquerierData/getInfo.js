@@ -30,12 +30,12 @@ async function pickEmployee() {
 		roles.push(item.title);
 	});
 	return await inquirer.prompt(pickPerson).then((userData) => {
-		console.log(userData);
+		//console.log(userData);
 		let target = employee.find(
 			({ employee_name }) => employee_name === userData.names
 		);
 		userData.roles = roles.indexOf(userData.roles) + 1
-        console.log(target, userData)
+        //console.log(target, userData)
         return update(target, userData)
 	});
 }

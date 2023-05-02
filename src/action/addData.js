@@ -6,7 +6,7 @@ const start = require('../../server')
 const addDepartment =  (department_name) => {
     let quote = "INSERT INTO employeetracker.department"
     quote += `(department_name) value ('${department_name}');`
-    console.log(quote)
+    //console.log(quote)
     connection.query(quote).then(() =>start.start())
     return Promise.resolve()
 }
@@ -18,7 +18,7 @@ const addRole = (data, arr) => {
     quote += `(title,salary, department_id)`
     quote += `VALUES (
     '${roleName}', ${parseFloat(salary)},${parseInt(index)});`
-    console.log(quote)
+    //console.log(quote)
     connection.query(quote).then(() =>start.start())
     return Promise.resolve()
 
@@ -33,13 +33,13 @@ const addPeople = (data, type) => {
             quote += `(first_name,last_name,employer_id,role_id) VALUES`
             quote += `('${first_name}', '${last_name}', 
             ${parseInt(manager)}, ${parseInt(roles)});`
-            console.log(quote)
+            //console.log(quote)
             connection.query(quote).then(() =>start.start())
             return Promise.resolve()
         case 'employer':
             quote += `(first_name,last_name,role_id) VALUES`
             quote += `('${first_name}', '${last_name}', ${parseInt(roles)});`
-            console.log(quote)
+            //console.log(quote)
 
             connection.query(quote).then(() =>start.start())
             return Promise.resolve()

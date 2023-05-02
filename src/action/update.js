@@ -8,7 +8,7 @@ function update(person, role) {
     let quote = `UPDATE employeetracker.employee SET `
     quote += `role_id = ${parseInt(roles)} `
     quote += `WHERE id = ${id}`
-    console.log(quote)
+    //console.log(quote)
     connection.query(quote).then(() => start.start())
     return Promise.resolve()
 }

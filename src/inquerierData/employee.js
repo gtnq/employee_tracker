@@ -51,19 +51,19 @@ async function getEmployeeName() {
 	employerData.map((item) => {
 		employer.push(item.first_name + " " + item.last_name);
 	});
-	console.log(employer);
+	//console.log(employer);
 
 
 	let roleData = await getRole();
 	roleData.map((item) => {
 		role.push(item.title);
 	});
-	console.log(role);
+	//console.log(role);
 	return await inquirer.prompt(employeeQuestion)
     .then((data) => {
         data.manager = employer.indexOf(data.manager) +1
         data.roles = role.indexOf(data.roles) +1
-        console.log(data)
+        //console.log(data)
         return addPeople(data, 'employee')
     })
 }

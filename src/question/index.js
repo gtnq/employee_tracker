@@ -5,7 +5,7 @@ const pickEmployee = require('../inquerierData/getInfo')
 function actions (action) {
     switch(action) {
         case "view all departments":
-            console.log('test')
+            //console.log('test')
             view("department");
             
             break;
@@ -15,7 +15,7 @@ function actions (action) {
             break;
             
         case "view all employees":
-            console.log('test')
+            //console.log('test')
             view("employee");
             break;
             

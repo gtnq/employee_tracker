@@ -44,13 +44,13 @@ async function getRoleName() {
 	data.map((item) => {
 		department_arr.push(item.department_name);
 	});
-	console.log(department_arr);
+	//console.log(department_arr);
 	return inquirer
 		.prompt(roleQuestions)
         .then((data) => {
             
             data.index = department_arr.indexOf(data.index) + 1
-            console.log(data)
+            //console.log(data)
             return addRole(data, department_arr)})		
 }
 module.exports = getRoleName;
