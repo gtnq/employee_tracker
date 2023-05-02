@@ -11,15 +11,19 @@ const employeeOremployer = [
 	},
 ];
 
-function checkEmployeeORemployer() {
-	return inquirer.prompt(employeeOremployer).then((choice) => {
+async function checkEmployeeORemployer() {
+	return await inquirer.prompt(employeeOremployer).then((choice) => {
 		switch (choice.role) {
 			case "employee":
 				getEmployeeName().then(() => console.log("employee"));
+				break;
 			case "employer":
 				getEmployerName().then(() => console.log("employer"));
+				break;
 		}
+		return Promise.resolve()
 	});
+	
 }
 
 module.exports = checkEmployeeORemployer;

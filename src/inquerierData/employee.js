@@ -59,7 +59,7 @@ async function getEmployeeName() {
 		role.push(item.title);
 	});
 	console.log(role);
-	return inquirer.prompt(employeeQuestion)
+	return await inquirer.prompt(employeeQuestion)
     .then((data) => {
         data.manager = employer.indexOf(data.manager) +1
         data.roles = role.indexOf(data.roles) +1

@@ -22,20 +22,29 @@ const init = [
 
 function start() {
     return inquirer.prompt(init).then((userData) => {
-        return userData.index
+		
+        if (userData.index === 'Quit') {
+			console.log('finish')
+			process.exit()
+		} else {
+			actions(userData.index)
+		}
     });
 }
-async function status() {
-	let menu;
-	do {
-		menu = await start();
-		await actions(menu)
-	} while (menu !== 'Quit');
-	if (menu === 'quit'){
-		process.kill()
-	}
-}
-status()
+
+start()
 
 exports.start = start
-console.log('ehh')
+
+
+// async function status() {
+// 	let menu;
+// 	do {
+// 		menu = await start();
+// 		await actions(menu)
+// 	} while (menu !== 'Quit');
+// 	if (menu === 'quit'){
+// 		process.kill()
+// 	}
+// }
+// status()

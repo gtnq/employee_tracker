@@ -1,4 +1,5 @@
 const {getDepartment, getEmployee, getRole} = require('../action/getData')
+const start = require('../../server')
 
 function view (item) {
     switch (item) {
@@ -6,6 +7,7 @@ function view (item) {
             getDepartment().then((result) => {
                 console.table(result); 
                 console.log(" ");
+                start.start()
                 return Promise.resolve()
             })
             console.log('getdepartment')
@@ -14,15 +16,16 @@ function view (item) {
             getRole().then((result) => {
                 console.table(result); 
                 console.log(" ");
-                Promise.resolve()
+                start.start()
+                return Promise.resolve()
             })
             console.log('getRole')
             break;
         case "employee":
             getEmployee().then((result) => {
                 console.table(result); 
-                console.log(" ");
-                Promise.resolve()
+                console.log(" ");start.start()
+                return Promise.resolve()
             })
             console.log('getEmployee')
             break;

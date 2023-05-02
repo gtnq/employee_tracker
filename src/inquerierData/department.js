@@ -1,5 +1,5 @@
 const inquirer = require('inquirer')
-const addDepartment = require('../action/addData')
+const {addDepartment} = require('../action/addData')
 
 
 
@@ -21,7 +21,7 @@ const departmentQuestions = [
 
 
 async function getdepartmentName() {
-    return inquirer.prompt(departmentQuestions)
+    return await inquirer.prompt(departmentQuestions)
         .then(userdata => {return addDepartment(userdata.departmentName)})
         
 }
