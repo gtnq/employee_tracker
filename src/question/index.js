@@ -1,6 +1,6 @@
 const view = require('./view')
 const add = require('./add')
-const updateEmployee = require('../action/update')
+const pickEmployee = require('../inquerierData/getInfo')
 
 function actions (action) {
     switch(action) {
@@ -32,7 +32,7 @@ function actions (action) {
             break;
             
         case "update an employee role":
-            updateEmployee()
+            pickEmployee()
             break
             
         default:

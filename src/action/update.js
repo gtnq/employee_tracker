@@ -1,10 +1,19 @@
-function updateEmployee() {
+const connection = require('../../config/connection')
+const start = require('../../server')
 
 
-    console.log('update')
+function update(person, role) {
+    const {id} = person
+    const {roles} = role
+    let quote = `UPDATE employeetracker.employee SET `
+    quote += `role_id = ${parseInt(roles)} `
+    quote += `WHERE id = ${id}`
+    console.log(quote)
+    connection.query(quote).then(() => start.start())
+    return Promise.resolve()
 }
 
 
 
 
-module.exports = updateEmployee
+module.exports = update
